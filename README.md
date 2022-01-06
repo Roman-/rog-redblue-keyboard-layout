@@ -1,4 +1,4 @@
-![layout](img/v1-white.jpg)
+![layout](img/white.jpg)
 
 # Rog-redblue semiergonomic layout
 
@@ -26,7 +26,4 @@ I am a C++ programmer speaking English and Russian. My OS is Ubuntu and I use VI
 - 0 and 1 are the most used number symbols in programming. They're copied to the RED layer to be conveniently typed in expressions like `if (i != 0) {`. Notice that your thumb is holding the RED key during the entire ` != 0) {` part, and you never have to reach the digit row!
 
 ## TODO
-- Switch QWERTY/ЙЦУКЕН to Colemak/Diktor-ish
-- Consider to copy arrows somewhere where they could be used with left hand only (e.g. Shift+BLUE+esdf) for visual applications that force to use a mouse
-
-
+- Switch QWERTY/ЙЦУКЕН to Halmak/Diktor-ish
