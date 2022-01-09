@@ -32,22 +32,20 @@ xkb_symbols "common" {
     key.type[Group1] = "ONE_LEVEL";
     key <ESC>  { [ Caps_Lock ] };
     key <CAPS> { [ Escape ] };
+    key <RCTL> { [ Super_L ] };
+    key <PRSC> { [ End ] };
 
-    // left alt = BLUE (controls), right alt = RED (symbols)
+    // left alt = BLUE (navigation), right alt = RED (symbols)
     include "level3(lalt_switch)"
     include "level5(ralt_switch)"
     include "altwin(alt_win)"
-    // PRSC on Rog Zephyrus is to the right of the Alt key. TODO think of how to use it
-    key <PRSC> { [ VoidSymbol ] };
 
     key.type[Group1] = "EIGHT_LEVEL_SEMIALPHABETIC";
     key  <TAB> { [ Tab, ISO_Left_Tab, cent, sterling, currency, yen, brokenbar, section ] };
-    key <RCTL> { [ Super_L, Super_L, Super_L, Super_L, Super_L, Super_L, Super_L, Super_L  ] };
 
     // Mods: [ None,      Shift,     BLUE,          Shift+BLUE,      RED,       Shift+RED,  Sym+RED,  Shift+BLUE+RED ]
 
     // number row
-
 
     key <TLDE> { [ Cyrillic_io, Cyrillic_IO  ] };
     key <AE01> { [ 1, exclam, F1, F1, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol ] };
@@ -66,21 +64,29 @@ xkb_symbols "common" {
     // row 1
 
     key <AD01> {
-        symbols[Group1]= [   Cyrillic_shorti,   Cyrillic_SHORTI, F4, VoidSymbol, 1, VoidSymbol, VoidSymbol, VoidSymbol],
-        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK04>, clearmods=LevelThree), NoAction(),
+        symbols[Group1]= [   Cyrillic_shorti,   Cyrillic_SHORTI, F18, F18, 1, 1, VoidSymbol, VoidSymbol],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK18>, clearmods=LevelThree), RedirectKey(keycode=<FK18>, clearmods=LevelThree),
                            NoAction(), NoAction(), NoAction(), NoAction()]
     };
     key <AD02> {
-        symbols[Group1]= [   Cyrillic_tse,      Cyrillic_TSE, F11, F11, plus, VoidSymbol, VoidSymbol, VoidSymbol],
-        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK11>, clearmods=LevelThree), RedirectKey(keycode=<FK11>, clearmods=LevelThree),
+        symbols[Group1]= [   Cyrillic_tse,      Cyrillic_TSE, F4, F4, plus, plus, VoidSymbol, VoidSymbol],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK04>, clearmods=LevelThree), RedirectKey(keycode=<FK04>, clearmods=LevelThree),
                            NoAction(), NoAction(), NoAction(), NoAction()]
     };
-    key <AD03> { [ Cyrillic_u, Cyrillic_U, XF86Launch2, XF86Launch2, numbersign, numbersign, numerosign, numerosign ]   };
-    key <AD04> { [ Cyrillic_ka, Cyrillic_KA, XF86Launch3, XF86Launch3, dollar, dollar, U20BD, U20BD  ] };
+    key <AD03> {
+        symbols[Group1]= [ Cyrillic_u, Cyrillic_U, Cyrillic_u, Cyrillic_U, numbersign, numbersign, numerosign, numerosign ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<KP1>, clearmods=LevelThree), RedirectKey(keycode=<KP1>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AD04> {
+        symbols[Group1]= [ Cyrillic_ka, Cyrillic_KA, F14, F14, bracketleft, bracketleft, VoidSymbol, VoidSymbol  ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK14>, clearmods=LevelThree), RedirectKey(keycode=<FK14>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
     key <AD05> { [ Cyrillic_ie, Cyrillic_IE, VoidSymbol, VoidSymbol, asciitilde, asciitilde, VoidSymbol, VoidSymbol  ] };
     key <AD06> { [ Cyrillic_en, Cyrillic_EN, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol  ] };
     key <AD07> {
-        symbols[Group1]= [ Cyrillic_ghe,      Cyrillic_GHE, Prior, Prior, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol],
+        symbols[Group1]= [ Cyrillic_ghe,      Cyrillic_GHE, Prior, Prior, bracketright, bracketright, VoidSymbol, VoidSymbol],
         actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<PGUP>, clearmods=LevelThree), RedirectKey(keycode=<PGUP>, clearmods=LevelThree),
                            NoAction(), NoAction(), NoAction(), NoAction()]
     };
@@ -97,13 +103,21 @@ xkb_symbols "common" {
     key <AD10> { [ Cyrillic_ze,       Cyrillic_ZE, VoidSymbol, VoidSymbol, 0, 0, VoidSymbol, VoidSymbol  ] };
     key <AD11> { [ Cyrillic_ha, Cyrillic_HA, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol ] };
     key <AD12> { [ Cyrillic_hardsign, Cyrillic_HARDSIGN, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol ] };
-    key <BKSL> { [ Cyrillic_e, Cyrillic_E, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol ] };
+    key <BKSL> { [ backslash, bar, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol ] };
 
 
     // row 2
 
-    key <AC01> { [ Cyrillic_ef,       Cyrillic_EF, masculine, cedilla, exclam, exclam, VoidSymbol, VoidSymbol  ] };
-    key <AC02> { [ Cyrillic_yeru,     Cyrillic_YERU, periodcentered, paragraph, minus, minus, endash, endash  ] };
+    key <AC01> {
+        symbols[Group1]= [ Cyrillic_ef, Cyrillic_EF, F15, F15, exclam, exclam, VoidSymbol, VoidSymbol ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK15>, clearmods=LevelThree), RedirectKey(keycode=<FK15>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AC02> {
+        symbols[Group1]= [ Cyrillic_yeru, Cyrillic_YERU, F16, F16, minus, minus, endash, endash ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK16>, clearmods=LevelThree), RedirectKey(keycode=<FK16>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
 
     key <AC03> {
         symbols[Group1]= [ Cyrillic_ve, Cyrillic_VE, Delete, Delete, equal, equal, approxeq, approxeq],
@@ -111,9 +125,9 @@ xkb_symbols "common" {
                            NoAction(), NoAction(), NoAction(), NoAction() ]
     };
     key <AC04> {
-        symbols[Group1]= [ Cyrillic_a, Cyrillic_A, BackSpace, BackSpace, parenleft, parenleft, bracketleft, bracketleft],
+        symbols[Group1]= [ Cyrillic_a, Cyrillic_A, BackSpace, BackSpace, parenleft, parenleft, BackSpace, BackSpace],
         actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<BKSP>, clearmods=LevelThree), RedirectKey(keycode=<BKSP>, clearmods=LevelThree),
-                           NoAction(), NoAction(), NoAction(), NoAction() ]
+                           NoAction(), NoAction(), RedirectKey(keycode=<BKSP>, clearmods=LevelThree), RedirectKey(keycode=<BKSP>, clearmods=LevelThree) ]
     };
 
     key <AC05> { [ Cyrillic_pe, Cyrillic_PE, VoidSymbol, VoidSymbol, braceleft, braceleft, braceleft, braceleft  ] };
@@ -125,7 +139,7 @@ xkb_symbols "common" {
     };
     key <AC07> {
         autorepeat=yes,
-        symbols[Group1]= [ Cyrillic_o,        Cyrillic_O, Down, Down, parenright, parenright, bracketright, bracketright],
+        symbols[Group1]= [ Cyrillic_o,        Cyrillic_O, Down, Down, parenright, parenright, VoidSymbol, VoidSymbol],
         actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<DOWN>, clearmods=LevelThree), RedirectKey(keycode=<DOWN>, clearmods=LevelThree),
                            NoAction(), NoAction(),NoAction(), NoAction() ]
     };
@@ -141,21 +155,44 @@ xkb_symbols "common" {
         actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<RGHT>, clearmods=LevelThree), RedirectKey(keycode=<RGHT>, clearmods=LevelThree),
                            NoAction(), NoAction(),NoAction(), NoAction() ]
     };
-    key <AC10> { [ Return, Return, Return, Return, semicolon, semicolon, semicolon, semicolon ] };
+    key <AC10> {
+        symbols[Group1]= [ Cyrillic_zhe, Cyrillic_ZHE, Return, Return, semicolon, semicolon, Return, Return ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<RTRN>, clearmods=LevelThree), RedirectKey(keycode=<RTRN>, clearmods=LevelThree),
+                           NoAction(), NoAction(), RedirectKey(keycode=<RTRN>, clearmods=LevelThree), RedirectKey(keycode=<RTRN>, clearmods=LevelThree)]
+    };
     key <AC11> { [ Cyrillic_e, Cyrillic_E, VoidSymbol, VoidSymbol, quotedbl, quotedbl, VoidSymbol, VoidSymbol ] };
-    key <PRSC> { [ Cyrillic_zhe, Cyrillic_ZHE ] }; // have the original zhe btn preserved
 
     // row 3
 
-    key <AB01> { [ Cyrillic_ya,       Cyrillic_YA, VoidSymbol, VoidSymbol, grave, grave, VoidSymbol, VoidSymbol   ] };
-    key <AB02> { [ Cyrillic_che,      Cyrillic_CHE, VoidSymbol, VoidSymbol, at, at, VoidSymbol, VoidSymbol  ] };
-    key <AB03> { [ Cyrillic_es,       Cyrillic_ES, VoidSymbol, XF86Launch6, percent, percent, VoidSymbol, VoidSymbol  ] };
-    key <AB04> { [ Cyrillic_em,       Cyrillic_EM, VoidSymbol, VoidSymbol, less,  less, VoidSymbol, VoidSymbol  ] };
-    key <AB05> { [ Cyrillic_i,        Cyrillic_I, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol, VoidSymbol  ] };
+    key <AB01> {
+        symbols[Group1]= [ Cyrillic_ya, Cyrillic_YA, VoidSymbol, VoidSymbol, grave, grave, VoidSymbol, VoidSymbol   ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<UNDO>, clearmods=LevelThree), RedirectKey(keycode=<UNDO>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AB02> {
+        symbols[Group1]= [ Cyrillic_che, Cyrillic_CHE, at, at, at, at, VoidSymbol, VoidSymbol  ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<FK11>, clearmods=LevelThree), RedirectKey(keycode=<FK11>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AB03> {
+        symbols[Group1]= [ Cyrillic_es, Cyrillic_ES, percent, percent, percent, percent, VoidSymbol, VoidSymbol  ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<HIRA>, clearmods=LevelThree), RedirectKey(keycode=<HIRA>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AB04> {
+        symbols[Group1]= [ Cyrillic_em, Cyrillic_EM, less, less, less,  less, VoidSymbol, VoidSymbol  ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<KATA>, clearmods=LevelThree), RedirectKey(keycode=<KATA>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
+    key <AB05> {
+        symbols[Group1]= [ Cyrillic_i,  Cyrillic_I, VoidSymbol, VoidSymbol, dollar, dollar, U20BD, U20BD  ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<MUHE>, clearmods=LevelThree), RedirectKey(keycode=<MUHE>, clearmods=LevelThree),
+                           NoAction(), NoAction(), NoAction(), NoAction()]
+    };
     key <AB06> { [ Cyrillic_te,       Cyrillic_TE, VoidSymbol, VoidSymbol, greater, greater, VoidSymbol, VoidSymbol  ] };
     key <AB07> { [ Cyrillic_softsign, Cyrillic_SOFTSIGN, Next, Next, question, question, VoidSymbol, VoidSymbol] };
-    key <AB08> { [ Cyrillic_be,       Cyrillic_BE, VoidSymbol, VoidSymbol, backslash, backslash, VoidSymbol, VoidSymbol  ] };
-    key <AB09> { [ Cyrillic_yu,       Cyrillic_YU, VoidSymbol, VoidSymbol, ampersand, ampersand, VoidSymbol, VoidSymbol  ] };
+    key <AB08> { [ Cyrillic_be,       Cyrillic_BE, VoidSymbol, VoidSymbol, ampersand, ampersand, VoidSymbol, VoidSymbol  ] };
+    key <AB09> { [ Cyrillic_yu,       Cyrillic_YU, VoidSymbol, VoidSymbol, backslash, backslash, VoidSymbol, VoidSymbol  ] };
     key <AB10> { [ period, comma, VoidSymbol, VoidSymbol, slash, backslash, VoidSymbol, VoidSymbol ] };
 
     include "kpdl(comma)"
