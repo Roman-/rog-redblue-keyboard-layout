@@ -645,9 +645,7 @@ xkb_symbols "basic" {
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
-          // undo (ctrl+z)
-          RedirectKey(key=<AD05>, clearmods=Mod3+Mod5, mods=Control),
-          RedirectKey(key=<AD05>, clearmods=Mod3+Mod5, mods=Control),
+          NoAction(), NoAction(),
           NoAction(), NoAction(),
           NoAction(), NoAction()
         ]
