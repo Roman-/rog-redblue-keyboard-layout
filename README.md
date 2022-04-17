@@ -1,4 +1,4 @@
-![layout](img/white.jpg)
+![layout](img/black.png)
 
 # Rog-redblue semiergonomic QWERTY layout
 
