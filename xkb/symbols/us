@@ -331,9 +331,7 @@ xkb_symbols "basic" {
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
-          // addr (ctrl+L)
-          RedirectKey(key=<AC09>, clearmods=Mod3+Mod5, mods=Control),
-          RedirectKey(key=<AC09>, clearmods=Mod3+Mod5, mods=Shift+Control),
+          NoAction(), NoAction(),
           NoAction(), NoAction(),
           NoAction(), NoAction()
         ]
@@ -378,7 +376,7 @@ xkb_symbols "basic" {
         type[Group1] = "EIGHT_LEVEL",
         symbols[Group1] = [
             o, O, o, o,
-            asterisk, o, o, o
+            asterisk, U1F631, o, o
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
@@ -497,7 +495,7 @@ xkb_symbols "basic" {
         type[Group1] = "EIGHT_LEVEL",
         symbols[Group1] = [
             d, D, d, d,
-            equal, d, d, d
+            equal, U1F606, d, d
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
@@ -591,7 +589,7 @@ xkb_symbols "basic" {
         type[Group1] = "EIGHT_LEVEL",
         symbols[Group1] = [
             l, L, l, l,
-            colon, U1F601, l, l
+            colon, U1F602, l, l
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
@@ -746,9 +744,9 @@ xkb_symbols "basic" {
         ],
         actions[Group1] = [
           NoAction(), NoAction(),
-          // New tab (ctrl+T)
-          RedirectKey(key=<AD05>, clearmods=Mod3+Mod5, mods=Control),
-          RedirectKey(key=<AD05>, clearmods=Mod3+Mod5, mods=Control),
+          // addr (ctrl+L)
+          RedirectKey(key=<AC09>, clearmods=Mod3+Mod5, mods=Control),
+          NoAction(),
           NoAction(), NoAction(),
           NoAction(), NoAction()
         ]
