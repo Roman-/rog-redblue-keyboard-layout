@@ -1,3 +1,10 @@
+## This repository is outdated.
+## My current layout: [https://github.com/Roman-/redblue](https://github.com/Roman-/redblue)
+## Video: https://youtu.be/92pRAQeRIak
+
+
+
+
 ![layout](img/black.png)
 
 # Rog-redblue semiergonomic QWERTY layout
